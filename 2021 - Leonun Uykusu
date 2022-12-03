@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    long long t,sum,l,r,m,ans;
+    cin>>t;
+    while(t--)
+    {
+        cin>>sum;
+        l=0;
+        r=100000;
+        while(l<=r)
+        {
+            m=(l+r)/2;
+            if(m*(m+1)/2==sum)
+            break;
+            else if(m*(m+1)/2>sum)
+            r=m-1;
+            else
+            l=m+1;
+        }
+        r++;
+        cout<<r*(r+1)/2-sum<<" "<<r<<endl;
+    }
+    return 0;
+}
