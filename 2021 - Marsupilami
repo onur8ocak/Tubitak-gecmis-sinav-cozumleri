@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+
+#include <vector>
+
+using namespace std;
+
+vector<int> graph[100005];
+
+int n;
+
+void dfs(int node,int d,int l)
+{
+    if(node==n||l>3)
+    {
+        if(l<4)
+        cout<<l;
+        else
+        cout<<"COK";
+        exit(0);
+    }
+    for(int i:graph[node])
+    {
+        if(i!=d)
+        dfs(i,node,l+1);
+    }
+}
+
+int main() {
+    int a,b,temp;
+    cin>>n;
+    temp=n;
+    n--;
+    while(n--)
+    {
+        cin>>a>>b;
+        
+        graph[a].push_back(b);
+        graph[b].push_back(a);
+    }
+    n=temp;
+    dfs(1,0,0);
+}
