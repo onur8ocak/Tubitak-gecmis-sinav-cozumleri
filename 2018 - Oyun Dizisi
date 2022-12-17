@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,a,b,ayse=0,bora=0;
+    cin>>n;
+    while(n--)
+    {
+        cin>>a>>b;
+        if(a>b)
+        {
+            ayse+=a-b;
+        }
+        else if(b>a)
+        {
+            bora+=b-a;
+        }
+        else
+        {
+            if(ayse<=bora)
+            ayse++;
+            else if(bora<ayse)
+            bora++;
+        }
+    }
+    if(ayse==bora)
+        cout<<"berabere"<<endl;
+    else if(ayse>bora)
+        cout<<"ayse"<<endl;
+    else
+        cout<<"bora"<<endl;
+
+    return 0;
+}
